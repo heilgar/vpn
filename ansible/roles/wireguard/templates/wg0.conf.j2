@@ -1,0 +1,17 @@
+[Interface]
+Address = {{ wg_server_address | default("10.8.0.1/24") }}
+ListenPort = {{ wg_listen_port | default(51820) }}
+PrivateKey = {{ wg_server_private_key }}
+
+PostUp   = iptables -A FORWARD -i %i -j ACCEPT; iptables -A FORWARD -o %i -j ACCEPT; iptables -t nat -A POSTROUTING -o {{ wg_out_iface }} -j MASQUERADE
+PostDown = iptables -D FORWARD -i %i -j ACCEPT; iptables -D FORWARD -o %i -j ACCEPT; iptables -t nat -D POSTROUTING -o {{ wg_out_iface }} -j MASQUERADE
+
+{% for peer in wg_peers %}
+[Peer]
+PublicKey = {{ peer.public_key }}
+AllowedIPs = {{ peer.allowed_ips }}
+{% if peer.preshared_key is defined %}
+PresharedKey = {{ peer.preshared_key }}
+{% endif %}
+{% endfor %}
+

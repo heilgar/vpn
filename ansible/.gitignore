@@ -1,0 +1,4 @@
+.vault_pass
+*.key
+group_vars/all/vault.yml
+

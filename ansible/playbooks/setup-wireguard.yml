@@ -1,0 +1,7 @@
+- hosts: wireguard_servers
+  become: true
+  vars_files:
+    - ../group_vars/all/vault.yml
+    - ../group_vars/all/vars.yml
+  roles:
+    - role: wireguard

@@ -1,0 +1,11 @@
+wg_server_address: "10.8.0.1/24"
+wg_listen_port: 51820
+wg_out_iface: "ens5"
+
+wg_server_private_key: "{{ vault_wg_server_private_key }}"
+
+wg_peers:
+  - name: m1
+    public_key: "{{ vault_wg_peer_m1_public_key }}"
+    allowed_ips: "10.8.0.2/32"
+    preshared_key: "{{ vault_wg_peer_m1_preshared_key }}"
