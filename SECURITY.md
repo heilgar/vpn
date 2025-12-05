@@ -103,7 +103,7 @@ We recommend regularly updating the following components:
 
 - [WireGuard Security Model](https://www.wireguard.com/protocol/)
 - [AWS Security Best Practices](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/welcome.html)
-- [Terraform Security Best Practices](https://developer.hashicorp.com/terraform/cloud-docs/recommended-practices/security)
+- [Terraform Language Style Guide](https://developer.hashicorp.com/terraform/language/style)
 - [Ansible Security Automation](https://www.ansible.com/use-cases/security-automation)
 
 ## Acknowledgments
